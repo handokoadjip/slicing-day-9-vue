@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HeaderComponent />
+  <main>
+    <router-view />
+  </main>
+  <FooterComponent />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import $ from 'jquery';
+import HeaderComponent from "@/components/HeaderComponent.vue"
+import FooterComponent from "@/components/FooterComponent.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderComponent,
+    FooterComponent
+  },
+  mounted: function() {
+    $(document).ready(function() {
+      $(document).scroll(function() {
+        const nav = $(".navbar.fixed-top");
+        nav.toggleClass("scrolled", $(this).scrollTop() > nav.height());
+      });
+    });
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+/* Style Here */
 </style>

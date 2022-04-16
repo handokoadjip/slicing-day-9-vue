@@ -1,4 +1,4 @@
-# day-1-vue
+# Pinterest España | Studio Rufus
 
 ## Project setup
 ```
